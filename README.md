@@ -4,7 +4,7 @@
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/jmreis/audio-to-text-with-python?style=for-the-badge) ![GitHub language count ](https://img.shields.io/github/languages/count/jmreis/audio-to-text-with-python?style=for-the-badge) <!--![GitHub forks]( https://img.shields.io/github/forks/iuricode/README-template?style=for-the-badge) ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode /README-template?style=for-the-badge) ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge ) -->
 
-![alt text](https://github.com/jmreis/audio-to-text-with-python/blob/main/project.git?raw=true)
+![project.gif](img/project.gif)
 
 ---
 
