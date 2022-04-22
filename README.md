@@ -2,12 +2,12 @@
 
 <!---These are examples. See https://shields.io for others or to customize this shield set. You might want to include dependencies, project status and license information here--->
 
-![GitHub repo size](https://img.shields.io/github/repo-size/jmreis/audio-to-txt-with-python?style=for-the-badge) ![GitHub language count ](https://img.shields.io/github/languages/count/jmreis/audio-to-txt-with-python?style=for-the-badge) <!--![GitHub forks]( https://img.shields.io/github/forks/iuricode/README-template?style=for-the-badge) ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode /README-template?style=for-the-badge) ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge ) -->
+![GitHub repo size](https://img.shields.io/github/repo-size/jmreis/audio-to-text-with-python?style=for-the-badge) ![GitHub language count ](https://img.shields.io/github/languages/count/jmreis/audio-to-text-with-python?style=for-the-badge) <!--![GitHub forks]( https://img.shields.io/github/forks/iuricode/README-template?style=for-the-badge) ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode /README-template?style=for-the-badge) ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge ) -->
 
 ---
 
 ## Skills
-![python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)![docker](https://camo.githubusercontent.com/63350538fde994bc287ccd4908809301e157980e6564bf78d2c5cec22c0a5914/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f636b65722d3243413545303f7374796c653d666f722d7468652d6261646765266c6f676f3d646f636b6572266c6f676f436f6c6f723d7768697465)
+![python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![docker](https://camo.githubusercontent.com/63350538fde994bc287ccd4908809301e157980e6564bf78d2c5cec22c0a5914/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f446f636b65722d3243413545303f7374796c653d666f722d7468652d6261646765266c6f676f3d646f636b6572266c6f676f436f6c6f723d7768697465)
 ---
 
 > CLI project written in [Python](https://reactjs.org/docs/getting-started.html), which transcribes an audio from mp3 format to a text file.
@@ -68,9 +68,9 @@ $ source .venv/bin/activate
 
 - Using Docker with development environment:
 ```bash
-# docker build -t <image_name> .
+$ docker build -t <image_name> .
 
-# docker run <image_name> python <script_name>.py --<arg_name> <arg_value>
+$ docker run <image_name> python <script_name>.py --<arg_name> <arg_value>
 
 ```
 
