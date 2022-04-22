@@ -50,7 +50,7 @@ Linux, macOS and Windows::
 ```bash
 $ git clone https://https://github.com/jmreis/audio-to-text-with-python.git
 
-$ cd https://github.com/jmreis/audio-to-text-with-python
+$ cd audio-to-text-with-python/
 ```
 
 ## ☕ Using
