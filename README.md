@@ -38,7 +38,7 @@ The project is still in development and the next updates will focus on the follo
 
 Before starting, make sure you've met the following requirements:
 <!---These are example requirements only. Add, duplicate or remove as needed--->
-* You have installed [Python](https://reactjs.org/docs/getting-started.html) and [Docker].
+* You have installed [Python](https://www.python.org) and [Docker].
 * You have a `<Windows/Linux/Mac>` machine.
 
 
@@ -49,7 +49,9 @@ To install, follow these steps:
 Linux, macOS and Windows::
 ```bash
 $ git clone https://https://github.com/jmreis/audio-to-text-with-python.git
+```
 
+```bash
 $ cd audio-to-text-with-python/
 ```
 
