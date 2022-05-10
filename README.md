@@ -46,13 +46,14 @@ Before starting, make sure you've met the following requirements:
 
 To install, follow these steps:
 
-Linux, macOS and Windows::
+Linux, macOS and Windows:
+
 ```bash
-$ git clone https://https://github.com/jmreis/audio-to-text-with-python.git
+git clone https://https://github.com/jmreis/audio-to-text-with-python.git
 ```
 
 ```bash
-$ cd audio-to-text-with-python/
+cd audio-to-text-with-python/
 ```
 
 ## ☕ Using
@@ -60,22 +61,31 @@ $ cd audio-to-text-with-python/
 To use, follow these steps:
 
 - Using virtualenv:
+
 ```bash
-$ python3 -m venv .venv
+python3 -m venv .venv
+```
 
-$ source .venv/bin/activate
+```bash
+source .venv/bin/activate
+```
 
-(venv)$ pip install -r requirements.txt
+```bash
+pip install -r requirements.txt
+```
 
-(venv)$ python <script_name>.py --<arg_name> <arg_value>
+```bash
+python <script_name>.py --<arg_name> <arg_value>
 ```
 
 - Using Docker with development environment:
+
 ```bash
-$ docker build -t <image_name> .
+docker build -t <image_name> .
+```
 
-$ docker run <image_name> python <script_name>.py --<arg_name> <arg_value>
-
+```bash
+docker run <image_name> python <script_name>.py --<arg_name> <arg_value>
 ```
 
 ## 📫 Contributing to <project_name>
