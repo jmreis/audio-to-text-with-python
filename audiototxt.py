@@ -48,21 +48,25 @@ logging.debug(f'⏱ {GREEN}Start time: {starttime}{RESET}')
 parser = argparse.ArgumentParser(description="Converting audio file to a trascript .txt file")
 parser.add_argument("--audiofile", help="name of audio file with extension [Ex.: audio.mp3]",
  type=str, default="audio.mp3")
-    
+parser.add_argument("--lang-code", help="translation language code [Ex.: pr-BR ,...]",
+ type=str, default="pt-BR", dest='lang_code')
+
 given_args = parser.parse_args()
 audio_file = given_args.audiofile
 
 # Audio files
-AUDIO_SRC = audio_file
-AUDIO_DST = f"{AUDIO_SRC}.wav"
+AUDIO_SRC: str = audio_file
+REQUESTED_TRANSLATION_LANG_CODE: str = given_args.lang_code
 
 # Converting audio to wav
 logging.debug(f"{GREEN}Coverting audio to .wav file.{RESET}")
-audio = AudioSegment.from_mp3(AUDIO_SRC)
-audio.export(AUDIO_DST, format="wav")
+if not AUDIO_SRC.lower().endswith('.wav'):
+    audio = AudioSegment.from_mp3(AUDIO_SRC)
+    AUDIO_SRC = AUDIO_SRC + '.cvrt2.wav'
+    audio.export(AUDIO_SRC, format="wav")
 
 # Selecionando  audio 
-audio = AudioSegment.from_file(AUDIO_DST, 'wav')
+audio = AudioSegment.from_file(AUDIO_SRC, 'wav')
 
 # Tamanho
 segment_size = 30000
@@ -71,25 +75,15 @@ segment_size = 30000
 logging.debug(f"{GREEN}Segmenting audio file.{RESET}")
 
 partes = make_chunks(audio, segment_size)
-partes_audio = []
 
 
-for i, parte in enumerate(partes):
-    # Enumerando arquivo particionado
-    parte_name = f"parte{i}.wav"
-    # Guardando na lista
-    partes_audio.append(parte_name)
-    # Exportando arquivos
-    parte.export(parte_name, format='wav')
-    logging.debug(f"Audio segment created: {parte_name}")
-
-
-def transcript_audio(name_audio):
+def transcript_audio(name_audio, lang_code: str='pt-BR'):
     """This function trascript the audio file
     to string.
 
     Args:
         name_audio (str): name of audio file
+        lang_code  (str): code of translation language code (valid codes : https://cloud.google.com/speech-to-text/docs/languages)
 
     Returns:
         str : result of audio content in text string
@@ -101,7 +95,7 @@ def transcript_audio(name_audio):
 
     try:
         logging.debug(f"Google Speech Recognition: Transcript {name_audio}")
-        text = r.recognize_google(audio,language='pt-BR')
+        text = r.recognize_google(audio, language=lang_code)
     except sr.UnknownValueError:
         logging.debug(f'{CIANO}Google Speech Recognition NÃO ENTENDEU o audio.{RESET}')
         text = ''
@@ -114,9 +108,11 @@ def transcript_audio(name_audio):
 if __name__ == "__main__":
     # Trascription of audios segments
     text = ''
-    with alive_bar(len(partes_audio), dual_line=True, title='Transcription') as bar:
-        for parte in partes_audio:
-            text = f"{text} {transcript_audio(parte)}"
+    with alive_bar(len(partes), dual_line=True, title='Transcription') as bar:
+        for i, parte in enumerate(partes):
+            parte_name = f"parte{i+1}.wav"
+            parte.export(parte_name, format='wav')
+            text = f"{text} {transcript_audio(parte_name, REQUESTED_TRANSLATION_LANG_CODE)}"
             bar()
     logging.debug(f'{RED}Transcript of the audio file:{RESET}')
     print(text)
